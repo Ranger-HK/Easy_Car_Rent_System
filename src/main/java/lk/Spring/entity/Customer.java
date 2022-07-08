@@ -1,6 +1,6 @@
 package lk.Spring.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,8 +22,6 @@ public class Customer {
     private String address;
     private String mobile_Number;
     private String driving_License_Number;
-    /*@JsonFormat(pattern = )*/
-   /* private byte id_Img;*/
     private String  nIC_Number;
     private String email;
     private String password;
