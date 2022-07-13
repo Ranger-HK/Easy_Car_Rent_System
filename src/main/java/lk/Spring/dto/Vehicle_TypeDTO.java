@@ -16,3 +16,8 @@ public class Vehicle_TypeDTO {
     private double loss_Damage_Waiver;
 
 }
+
+
+
+
+
