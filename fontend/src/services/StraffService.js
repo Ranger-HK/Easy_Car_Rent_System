@@ -1,65 +1,52 @@
-import axios from "../axios"
-import qs from "qs";
+import axios from '../axios';
+import qs from 'qs';
 
-class VehicleService {
-    postVehicle = async (data) =>{
+class StaffService {
+    postStaff = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('vehicle',data)
+            axios.post('staff', qs.stringify(data))
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
-                return resolve(err)
-            })
-        })
-        return await promise;
-    }
-
-    fetchVehicles = async () =>{
-        const promise = new Promise((resolve, reject) => {
-            axios.get('vehicle')
-                .then((res) => {
-                    return resolve(res)
-                }).catch((err) => {
-                return resolve(err)
-            })
-        })
-        return await promise;
-    }
-
-    deleteVehicle = async (params) =>{
-        const promise = new Promise((resolve, reject) => {
-            axios.delete('Vehicle',{params:params})
-                .then((res) => {
-                    return resolve(res)
-                }).catch((err) => {
-                return resolve(err)
-            })
-        })
-        return await promise;
-    }
-
-    updateVehicle = async (data) =>{
-        const promise = new Promise((resolve, reject) => {
-            axios.put('Vehicle',data)
-                .then((res)=>{
-                    return resolve(res)
-                }).catch((err)=>{
                 return resolve(err)
             })
         });
         return await promise;
     }
 
-    countByStatus = async (data) =>{
+    fetchStaff = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('Vehicle/count/status',{params:{status:data}})
+            axios.get('staff')
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
                 return resolve(err)
             })
-        })
+        });
+        return await promise;
+    }
+    deleteStaff = async (params) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.delete('staff', {params:params})
+                .then((res) => {
+                    return resolve(res)
+                }).catch((err) => {
+                return resolve(err)
+            })
+        });
+        return await promise;
+    }
+    updateStaff = async (data) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.put('staff', data)
+                .then((res) => {
+                    return resolve(res)
+                }).catch((err) => {
+                return resolve(err)
+            })
+        });
         return await promise;
     }
 }
-export default new VehicleService();
+
+export default new StaffService();

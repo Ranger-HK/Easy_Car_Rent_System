@@ -4,7 +4,7 @@ import qs from 'qs';
 class DriverService {
     postDriver = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('driver', qs.stringify(data))
+            axios.post('Driver', qs.stringify(data))
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
@@ -16,7 +16,7 @@ class DriverService {
 
     fetchPosts = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('driver')
+            axios.get('Driver')
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {

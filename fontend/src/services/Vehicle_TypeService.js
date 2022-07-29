@@ -1,10 +1,10 @@
 import axios from "../axios"
 import qs from "qs";
 
-class VehicleService {
-    postVehicle = async (data) =>{
-        const promise = new Promise((resolve, reject) => {
-            axios.post('vehicle',data)
+class VehicleTypeService {
+    postVehicleType = async (data) => {
+        const promise = new Promise((resolve, reject)=>{
+            axios.post('VehicleType',qs.stringify(data))
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
@@ -14,9 +14,9 @@ class VehicleService {
         return await promise;
     }
 
-    fetchVehicles = async () =>{
-        const promise = new Promise((resolve, reject) => {
-            axios.get('vehicle')
+    fetchVehicleType = async () => {
+        const promise = new Promise((resolve, reject)=>{
+            axios.get('VehicleType')
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
@@ -26,9 +26,10 @@ class VehicleService {
         return await promise;
     }
 
-    deleteVehicle = async (params) =>{
-        const promise = new Promise((resolve, reject) => {
-            axios.delete('Vehicle',{params:params})
+    deleteVehicleType = async (params) => {
+        console.log(params)
+        const promise = new Promise((resolve, reject)=>{
+            axios.delete('VehicleType', {params:params})
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
@@ -38,9 +39,9 @@ class VehicleService {
         return await promise;
     }
 
-    updateVehicle = async (data) =>{
+    updateVehicleType = async (data) =>{
         const promise = new Promise((resolve, reject) => {
-            axios.put('Vehicle',data)
+            axios.put('VehicleType',data)
                 .then((res)=>{
                     return resolve(res)
                 }).catch((err)=>{
@@ -50,16 +51,5 @@ class VehicleService {
         return await promise;
     }
 
-    countByStatus = async (data) =>{
-        const promise = new Promise((resolve, reject) => {
-            axios.get('Vehicle/count/status',{params:{status:data}})
-                .then((res) => {
-                    return resolve(res)
-                }).catch((err) => {
-                return resolve(err)
-            })
-        })
-        return await promise;
-    }
 }
-export default new VehicleService();
+export default new VehicleTypeService();
