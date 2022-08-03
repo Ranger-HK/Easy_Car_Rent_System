@@ -65,5 +65,9 @@ public class CustomerServiceImpl implements CustomerService {
         }.getType());
     }
 
+    @Override
+    public long countUsers() {
+        return customerRepo.count();
+    }
 
 }

@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,5 +27,7 @@ public class VehicleDTO {
     private double running_Km;
     private Rates rates;
     private Vehicle_Type vehicleType;
+    private List<VehicleImgDTO> imgs;
+
 
 }

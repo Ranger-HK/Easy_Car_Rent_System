@@ -49,4 +49,10 @@ public class CustomerController {
         return new ResponseUtil(200, "Ok", customerService.searchCustomer(id));
     }
 
+    @GetMapping(path = "/count", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil userCount() {
+        return new ResponseUtil(200, "Ok", customerService.countUsers());
+    }
+
+
 }
