@@ -26,6 +26,7 @@ public class RatesController {
 
     @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil deleteRate(@RequestParam String id){
+        System.out.println("id");
         ratesService.deleteRate(id);
         return new ResponseUtil(200,"Deleted Success",null);
     }

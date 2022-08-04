@@ -111,7 +111,7 @@ class Footer extends Component {
                 justifyContent="center"
                 className="bg-blue-000 text-white text-center h-12 justify-end "
               >
-                <Typography variant="h5" className="font-dosis">Esay Car Rental</Typography>
+                <Typography variant="h5" className="font-dosis">Easy Car Rental</Typography>
               </Grid>
               <Grid
                 container
@@ -121,7 +121,7 @@ class Footer extends Component {
                 className="bg-blue-000 h-16"
               >
                 <Typography variant="p" className="text-center">
-                  Copyright © 2022 | Esay Car Rental. All right reserved
+                  Copyright © 2022 | Easy Car Rental. All right reserved
                 </Typography>
               </Grid>
             </Grid>

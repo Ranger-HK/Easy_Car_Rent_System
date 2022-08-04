@@ -28,7 +28,7 @@ class Sidebar extends Component {
                 alignContent="center"
             >
                 <Typography className="text-xl font-bold text-blue-600 font-dosis">
-                    Esay Car Rental
+                    Easy Car Rental
                 </Typography>
             </Grid>
             <hr className="border border-neutral-300"/>
@@ -82,7 +82,7 @@ class Sidebar extends Component {
                                 component={"span"}
                                 className="text-sm font-semibold text-gray-700"
                             >
-                                Vehicle Reats
+                                Vehicle Rates
                             </Typography>
                         </li>
                     </Link>

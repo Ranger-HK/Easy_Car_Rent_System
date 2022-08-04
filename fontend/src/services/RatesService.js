@@ -1,7 +1,7 @@
 import axios from "../axios";
 import qs from 'qs';
 
-class VehicleReatsService {
+class RatesService {
     postRates=async (data) => {
         const promise = new Promise((resolve, reject) => {
             axios.post('Rate', qs.stringify(data))
@@ -27,7 +27,9 @@ class VehicleReatsService {
     }
 
     deleteRates = async (params) => {
+        console.log("params,",params);
         const promise = new Promise((resolve, reject) => {
+
             axios.delete('Rate', {params:params})
                 .then((res) => {
                     return resolve(res)
@@ -50,4 +52,4 @@ class VehicleReatsService {
         return await promise;
     }
 }
-export default new VehicleReatsService();
+export default new RatesService();
