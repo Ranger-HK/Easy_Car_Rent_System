@@ -21,7 +21,7 @@ class Footer extends Component {
                   <Typography variant="h6">Headoffice</Typography>
                 </Grid>
                 <Grid>
-                  <Typography variant="p">Nawalapitiya, kandy</Typography>
+                  <Typography variant="p">Bandaragama</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -53,7 +53,7 @@ class Footer extends Component {
                   <Typography variant="h6">Email Us</Typography>
                 </Grid>
                 <Grid>
-                  <Typography variant="p">easycar@gmail.com</Typography>
+                  <Typography variant="p">easycarrental@gmail.com</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -69,7 +69,7 @@ class Footer extends Component {
                   <Typography variant="h6"> Call Us</Typography>
                 </Grid>
                 <Grid>
-                  <Typography variant="p">+94 767059199</Typography>
+                  <Typography variant="p">+94 764618605</Typography>
                 </Grid>
               </Grid>
             </Grid>
