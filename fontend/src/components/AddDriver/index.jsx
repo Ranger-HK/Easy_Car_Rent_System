@@ -13,44 +13,64 @@ class AddDriver extends Component {
         super(props);
         this.state = {
             formData: {
-                driverId: "",
-                name: "",
-                address: "",
-                mobileNo: "",
-                email: "",
-                password: "",
-                status: "Available"
+                driverId: props.isUpdate ? props.obj.driverId : '',
+                name: props.isUpdate ? props.obj.name : '',
+                address: props.isUpdate ? props.obj.address : '',
+                mobileNo: props.isUpdate ? props.obj.mobileNo : '',
+                email: props.isUpdate ? props.obj.email : '',
+                password: props.isUpdate ? props.obj.password : '',
+                status: props.isUpdate ? props.obj.status : 'Available',
             },
             alert: false,
             message: '',
             severity: ''
+
         };
     }
 
     handleSubmit = async () => {
-        console.log("Hi handle");
-        console.log(this.state.formData);
         let formData = this.state.formData;
-        let res = await DriverService.postDriver(formData)
-        console.log(res)
+        if (this.props.isUpdate) {
+            console.log("Hi handle update");
+            let res = await DriverService.updateDriver(formData)
+            if (res.status === 200) {
+                this.setState({
+                    alert: true,
+                    message: 'Driver Updated!',
+                    severity: 'success'
+                });
+            } else {
+                this.setState({
+                    alert: true,
+                    message: 'Driver Update Unsuccessful!',
+                    severity: 'error'
+                });
+            }
 
-        if (res.status === 201) {
-            this.setState({
-                alert: true,
-                message: 'Driver Saved!',
-                severity: 'success'
-            });
-            this.clearFields();
-        }else {
-            this.setState({
-                alert: true,
-                message: 'Driver Saved Unsuccessful!',
-                severity: 'error'
-            });
+        } else {
+            console.log("Hi handle add");
+            console.log(this.state.formData);
+            let res = await DriverService.postDriver(formData)
+            console.log(res)
+
+            if (res.status === 201) {
+                await this.setState({
+                    alert: true,
+                    message: 'Driver Saved!',
+                    severity: 'success'
+                });
+
+            } else {
+                this.setState({
+                    alert: true,
+                    message: 'Driver Saved Unsuccessful!',
+                    severity: 'error'
+                });
+            }
         }
     };
 
-    clearFields = () =>{
+    clearFields = () => {
         this.setState({
             driverId: "",
             name: "",
@@ -69,27 +89,22 @@ class AddDriver extends Component {
             case "driverId":
                 const driverId = event.target.value;
                 this.setState(Object.assign(this.state.formData, {driverId: driverId}));
-                // this.setState({ userId });
                 break;
             case "name":
                 const name = event.target.value;
                 this.setState(Object.assign(this.state.formData, {name: name}));
-                // this.setState({ userId });
                 break;
             case "address":
                 const address = event.target.value;
                 this.setState(Object.assign(this.state.formData, {address: address}));
-                // this.setState({ userId });
                 break;
             case "mobileNo":
                 const mobileNo = event.target.value;
                 this.setState(Object.assign(this.state.formData, {mobileNo: mobileNo}));
-                // this.setState({ userId });
                 break;
             case "email":
                 const email = event.target.value;
                 this.setState(Object.assign(this.state.formData, {email: email}));
-                // this.setState({ userId });
                 break;
             case "password":
                 const password = event.target.value;
@@ -106,9 +121,9 @@ class AddDriver extends Component {
     };
 
     render() {
+
         const {classes} = this.props;
-        const {isUpdate, driverObj} = this.props;
-        console.log(driverObj.driverId)
+
         return (
             <>
                 <Grid container direction={'row'} xs={12} className={classes.container}>
@@ -197,7 +212,7 @@ class AddDriver extends Component {
                                 <CommonButton
                                     size="large"
                                     variant="contained"
-                                    label="Add"
+                                    label={this.props.isUpdate ? 'Update' : 'Add'}
                                     type="submit"
                                     className="text-white bg-blue-500 font-bold tracking-wide"
                                     style={{backgroundColor: 'rgba(25, 118, 210, 0.95)', width: '100%'}}
@@ -218,6 +233,7 @@ class AddDriver extends Component {
                 />
             </>);
     }
+
 }
 
 export default withStyles(styleSheet)(AddDriver);

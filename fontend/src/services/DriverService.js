@@ -14,7 +14,7 @@ class DriverService {
         return await promise;
     }
 
-    fetchPosts = async (data) => {
+    fetchDrivers = async (data) => {
         const promise = new Promise((resolve, reject) => {
             axios.get('Driver')
                 .then((res) => {
