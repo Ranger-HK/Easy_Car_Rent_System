@@ -25,9 +25,9 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public void saveStaff(StaffDTO staffDTO) {
-        if (!repo.existsById(staffDTO.getStaff_Id())){
+        if (!repo.existsById(staffDTO.getStaff_Id())) {
             repo.save(mapper.map(staffDTO, Staff.class));
-        }else {
+        } else {
             throw new RuntimeException("Staff Already Saved..");
         }
     }
@@ -36,7 +36,7 @@ public class StaffServiceImpl implements StaffService {
     public void deleteStaff(String id) {
         if (repo.existsById(id)) {
             repo.deleteById(id);
-        }else {
+        } else {
             throw new RuntimeException("Delete Failed");
         }
     }
@@ -45,7 +45,7 @@ public class StaffServiceImpl implements StaffService {
     public void updateStaff(StaffDTO staffDTO) {
         if (repo.existsById(staffDTO.getStaff_Id())) {
             repo.save(mapper.map(staffDTO, Staff.class));
-        }else {
+        } else {
             throw new RuntimeException("Update Failed");
         }
     }
@@ -53,15 +53,17 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public StaffDTO searchStaff(String id) {
         if (repo.existsById(id)) {
-            return mapper.map(repo.findById(id).get(),StaffDTO.class);
-        }else {
+            return mapper.map(repo.findById(id).get(), StaffDTO.class);
+        } else {
             throw new RuntimeException("Invalid Search");
         }
     }
 
     @Override
     public List<StaffDTO> getAllStaff() {
-        return mapper.map(repo.findAll(),new TypeToken<List<StaffDTO>>(){
+        return mapper.map(repo.findAll(), new TypeToken<List<StaffDTO>>() {
         }.getType());
     }
+
 }
+

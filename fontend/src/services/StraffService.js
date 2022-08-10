@@ -1,10 +1,10 @@
 import axios from '../axios';
 import qs from 'qs';
 
-class StaffService {
+class StraffService {
     postStaff = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('staff', qs.stringify(data))
+            axios.post('Staff', qs.stringify(data))
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
@@ -16,7 +16,7 @@ class StaffService {
 
     fetchStaff = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('staff')
+            axios.get('Staff')
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
@@ -27,7 +27,7 @@ class StaffService {
     }
     deleteStaff = async (params) => {
         const promise = new Promise((resolve, reject) => {
-            axios.delete('staff', {params:params})
+            axios.delete('Staff', {params:params})
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
@@ -38,7 +38,7 @@ class StaffService {
     }
     updateStaff = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.put('staff', data)
+            axios.put('Staff', data)
                 .then((res) => {
                     return resolve(res)
                 }).catch((err) => {
@@ -49,4 +49,4 @@ class StaffService {
     }
 }
 
-export default new StaffService();
+export default new StraffService();

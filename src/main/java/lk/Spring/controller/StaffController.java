@@ -20,37 +20,34 @@ public class StaffController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveStaff(@ModelAttribute StaffDTO staffDTO){
+    public ResponseUtil saveStaff(@ModelAttribute StaffDTO staffDTO) {
         staffService.saveStaff(staffDTO);
-        return new ResponseUtil(200,"Saved",null);
+        return new ResponseUtil(200, "Saved", null);
     }
 
 
-    @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil deleteStaff(@RequestParam String id){
+    @DeleteMapping(params = {"id"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deleteStaff(@RequestParam String id) {
         staffService.deleteStaff(id);
-        return new ResponseUtil(200,"Deleted Success",null);
+        return new ResponseUtil(200, "Deleted Success", null);
     }
 
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil updateStaff(@RequestBody StaffDTO staffDTO){
+    public ResponseUtil updateStaff(@RequestBody StaffDTO staffDTO) {
         staffService.updateStaff(staffDTO);
-        return new ResponseUtil(200,"Update Success",null);
+        return new ResponseUtil(200, "Update Success", null);
     }
 
-    @GetMapping(path = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil searchStaff(@PathVariable String id){
-        return new ResponseUtil(200,"Done",staffService.searchStaff(id));
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchStaff(@PathVariable String id) {
+        return new ResponseUtil(200, "Done", staffService.searchStaff(id));
     }
 
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil getAllStaff (){
-        return new ResponseUtil(200,"Done",staffService.getAllStaff());
+    public ResponseUtil getAllStaff() {
+        return new ResponseUtil(200, "Done", staffService.getAllStaff());
     }
-
-
-
 
 }
