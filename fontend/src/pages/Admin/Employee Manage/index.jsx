@@ -14,6 +14,8 @@ import StraffService from "../../../services/StraffService";
 import CustomSnackBar from "../../../components/common/SnakBar";
 import AddEmployee from "../../../components/AddEmployee";
 
+
+
 class EmployeeManage extends Component {
     constructor(props) {
         super(props);
