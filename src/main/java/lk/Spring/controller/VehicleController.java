@@ -56,7 +56,7 @@ public class VehicleController {
     public ResponseUtil getAllByStatus(@RequestParam String status) {
         return new ResponseUtil(200, "Ok", vehicleService.getAllVehiclesByStatus(status));
     }
-
+/*
     @GetMapping(path = "/count/status",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil countAllByStatus(@RequestParam String status) {
         return new ResponseUtil(200, "Ok", vehicleService.countByStatus(status));
@@ -75,6 +75,6 @@ public class VehicleController {
 
         vehicleService.saveVehicleWithImg(vehicle,myFile);
         return new ResponseUtil(200, "New img Added Successfully", null);
-    }
+    }*/
 
 }

@@ -8,126 +8,121 @@ import AddIcCallOutlinedIcon from '@mui/icons-material/AddIcCallOutlined';
 class Footer extends Component {
   render() {
     return (
-      <Grid container direction="column">
-        <Grid container gap='5px' justifyContent={'space-evenly'} className=" text-white bg-stone-800 ">
+        <Grid container direction="column">
+          <Grid container gap='5px' justifyContent={'space-evenly'} className=" text-white bg-stone-800 ">
 
-          <Grid container direction='column' alignItems={'center'} justifyContent='center' className=" h-20 w-56">
-            <Grid container gap="10px" direction="row" justifyContent={'center'} alignItems='center' className="">
-              <Grid item className="">
-                <MapOutlinedIcon fontSize="large" className="text-yellow-400"/>
-              </Grid>
-              <Grid container direction="column" item className=" w-40">
-                <Grid>
-                  <Typography variant="h6">Headoffice</Typography>
+            <Grid container direction='column' alignItems={'center'} justifyContent='center' className=" h-20 w-56">
+              <Grid container gap="10px" direction="row" justifyContent={'center'} alignItems='center' className="">
+                <Grid item className="">
+                  <MapOutlinedIcon fontSize="large" className="text-yellow-400"/>
                 </Grid>
-                <Grid>
-                  <Typography variant="p">Bandaragama</Typography>
+                <Grid container direction="column" item className=" w-40">
+                  <Grid>
+                    <Typography variant="h6">HeadOffice</Typography>
+                  </Grid>
+                  <Grid>
+                    <Typography variant="p">Bandaragama</Typography>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
 
-          <Grid container direction='column' alignItems={'center'} justifyContent='center' className=" h-20 w-56">
-            <Grid container gap="10px" direction="row" justifyContent={'center'} alignItems='center' className="">
-              <Grid item className="">
-                <AccessTimeOutlinedIcon fontSize="large" className="text-yellow-400"/>
-              </Grid>
-              <Grid container direction="column" item className=" w-40">
-                <Grid>
-                  <Typography variant="h6">Working</Typography>
+            <Grid container direction='column' alignItems={'center'} justifyContent='center' className=" h-20 w-56">
+              <Grid container gap="10px" direction="row" justifyContent={'center'} alignItems='center' className="">
+                <Grid item className="">
+                  <AccessTimeOutlinedIcon fontSize="large" className="text-yellow-400"/>
                 </Grid>
-                <Grid>
-                  <Typography variant="p">Service Available 24/7</Typography>
+                <Grid container direction="column" item className=" w-40">
+                  <Grid>
+                    <Typography variant="h6">Working</Typography>
+                  </Grid>
+                  <Grid>
+                    <Typography variant="p">Service Available 24/7</Typography>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
 
-          <Grid container direction='column' alignItems={'center'} justifyContent='center' className=" h-20 w-56">
-            <Grid container gap="10px" direction="row" justifyContent={'center'} alignItems='center' className="">
-              <Grid item className="">
-                <DraftsOutlinedIcon fontSize="large" className="text-yellow-400"/>
-              </Grid>
-              <Grid container direction="column" item className=" w-40">
-                <Grid>
-                  <Typography variant="h6">Email Us</Typography>
+            <Grid container direction='column' alignItems={'center'} justifyContent='center' className=" h-20 w-56">
+              <Grid container gap="10px" direction="row" justifyContent={'center'} alignItems='center' className="">
+                <Grid item className="">
+                  <DraftsOutlinedIcon fontSize="large" className="text-yellow-400"/>
                 </Grid>
-                <Grid>
-                  <Typography variant="p">easycarrental@gmail.com</Typography>
+                <Grid container direction="column" item className=" w-40">
+                  <Grid>
+                    <Typography variant="h6">Email Us</Typography>
+                  </Grid>
+                  <Grid>
+                    <Typography variant="p">easycarRental@gmail.com</Typography>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
 
-          <Grid container direction='column' alignItems={'center'} justifyContent='center' className=" h-20 w-56">
-            <Grid container gap="10px" direction="row" justifyContent={'center'} alignItems='center' className="">
-              <Grid item className="">
-                <AddIcCallOutlinedIcon fontSize="large" className="text-yellow-400"/>
-              </Grid>
-              <Grid container direction="column" item className=" w-40">
-                <Grid>
-                  <Typography variant="h6"> Call Us</Typography>
+            <Grid container direction='column' alignItems={'center'} justifyContent='center' className=" h-20 w-56">
+              <Grid container gap="10px" direction="row" justifyContent={'center'} alignItems='center' className="">
+                <Grid item className="">
+                  <AddIcCallOutlinedIcon fontSize="large" className="text-yellow-400"/>
                 </Grid>
-                <Grid>
-                  <Typography variant="p">+94 764618605</Typography>
+                <Grid container direction="column" item className=" w-40">
+                  <Grid>
+                    <Typography variant="h6"> Call Us Now</Typography>
+                  </Grid>
+                  <Grid>
+                    <Typography variant="p">+94 764618605</Typography>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
+
           </Grid>
-          
-        </Grid>
-        <Grid item>
-          <Grid
-            container
-            direction="column"
-            justifyContent="flex-start"
-            alignItems="stretch"
-            className="bg-stone-900 text-stone-300 h-44"
-          >
+          <Grid item>
             <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="stretch"
+                container
+                direction="column"
+                justifyContent="flex-start"
+                alignItems="stretch"
+                className="bg-stone-900 text-stone-300 h-44"
             >
               <Grid
-                container
-                item
-                direction="column"
-                justifyContent="center"
-                className="bg-yellow-000 h-14"
+                  container
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="stretch"
               >
-                <ul className="flex justify-center gap-4 font-semibold">
-                  <li>Home</li>
-                  <li>General Cars</li>
-                  <li>Premium Cars</li>
-                  <li>Luxery Cars</li>
-                </ul>
-              </Grid>
-              <Grid
-                container
-                item
-                direction="column"
-                justifyContent="center"
-                className="bg-blue-000 text-white text-center h-12 justify-end "
-              >
-                <Typography variant="h5" className="font-dosis">Easy Car Rental</Typography>
-              </Grid>
-              <Grid
-                container
-                item
-                direction="column"
-                justifyContent="center"
-                className="bg-blue-000 h-16"
-              >
-                <Typography variant="p" className="text-center">
-                  Copyright © 2022 | Easy Car Rental. All right reserved
-                </Typography>
+                <Grid
+                    container
+                    item
+                    direction="column"
+                    justifyContent="center"
+                    className="bg-yellow-000 h-14"
+                >
+
+                </Grid>
+                <Grid
+                    container
+                    item
+                    direction="column"
+                    justifyContent="center"
+                    className="bg-blue-000 text-white text-center h-12 justify-end "
+                >
+                  <Typography variant="h3" className="font-dosis">Easy Car Rental</Typography>
+                </Grid>
+                <Grid
+                    container
+                    item
+                    direction="column"
+                    justifyContent="center"
+                    className="bg-blue-000 h-16"
+                >
+                  <Typography variant="p" className="text-center">
+                    Copyright © 2022 | Easy Car Rental. All right Are reserved
+                  </Typography>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
     );
   }
 }

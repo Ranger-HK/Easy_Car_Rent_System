@@ -1,69 +1,73 @@
-import {Component} from "react";
-import PropTypes from 'prop-types';
-import {Alert, Snackbar} from "@mui/material";
+import { Component } from "react";
+import  PropTypes from "prop-types";
+import {Snackbar} from "@mui/material";
+import Alert from '@mui/material/Alert';
 
-class CustomSnackBar extends Component {
-    static propTypes = {
+class IJSESnackBar extends Component {
+    static propTypes ={
         open: PropTypes.bool,
-        className: PropTypes.string,
-        message: PropTypes.object,
-        anchorOrigin: PropTypes.object,
-        children: PropTypes.node,
-        severity: PropTypes.string,
-        autoHideDuration: PropTypes.number
+        className : PropTypes.string,
+        message:PropTypes.string,
+        anchorOrigin:PropTypes.object,
+        children:PropTypes.node,
+        severity:PropTypes.string,
+        autoHideDuration:PropTypes.number
     }
 
-    static defaultProps = {
-        open: false,
-        className: "",
-        message: "",
-        name: "CustomSnackBar",
-        severity: "success",
-        autoHideDuration: 3000,
-        anchorOrigin: {
-            vertical: "bottom", horizontal: "center"
+    static defaultProps={
+        open:false,
+        className:"",
+        message:"",
+        name:"IJSE_SnackBar",
+        severity:"success",
+        autoHideDuration:3000,
+        anchorOrigin:{
+            vertical:"bottom",
+            horizontal:"center"
         },
-        variant: 'filled'
+        variant:"filled"
     }
 
-    handleButtonClose = (event) =>{
-        const {onClose} = this.props
-        onClose && onClose({event,})
+
+    handleButtonClose=(event)=>{
+        const {onClose}=this.props
+        onClose && onClose({event})
     }
 
-    renderChildren = (message, children) => {
-        if (message) return message;
-        if (children) return  children;
+    renderChildren = (message,children)=>{
+        if(message) return message;
+        if(children) return children;
     }
 
-    render() {
+    render(){
         const {
             open,
             className,
-            message,
-            name,
             severity,
-            autoHideDuration,
             anchorOrigin,
+            autoHideDuration,
+            message,
+            variant,
             children,
-            variant
         }=this.props;
-
         return(
-        <Snackbar
-            name="custom_snakbar"
-            open={open}
-            className={className}
-            anchorOrigin={anchorOrigin}
-            autoHideDuration={autoHideDuration}
-            onClose={this.handleButtonClose}
-        >
-            <Alert variant={variant} severity={severity} onClose={this.handleButtonClose} >
-                {this.renderChildren(message, children)}
-            </Alert>
-        </Snackbar>
+
+            <Snackbar
+                name="IJSE_SanckBar"
+                open={open}
+                className={className}
+                anchorOrigin={anchorOrigin}
+                autoHideDuration={autoHideDuration}
+                onClose={this.handleButtonClose}
+
+            >
+                <Alert onClose={this.handleButtonClose} variant={variant} severity={severity} >
+                    {this.renderChildren(message,children)}
+                </Alert>
+
+            </Snackbar>
         )
     }
 
 }
-export default CustomSnackBar;
+export default IJSESnackBar

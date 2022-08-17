@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import Navbar from "../../../components/common/Navbar/Admin";
 import Sidebar from "../../../components/common/Sidebar";
 import CommonButton from "../../../components/common/Button";
-import CommonDataTable from "../../../components/common/Table";
+import CommonDataTable from "../../../components/common/table";
 import AddIcon from "@mui/icons-material/Add";
 import {withStyles} from "@mui/styles";
 import {styleSheet} from "./styles";
@@ -11,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import AddVehicleType from "../../../components/AddVehicleType";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Vehicle_TypeService from "../../../services/Vehicle_TypeService";
+import Vehicle_TypeService from "../../../services/VehicleTypeService";
 import CustomSnackBar from "../../../components/common/SnakBar";
 
 class VehicleType extends Component {

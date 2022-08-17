@@ -2,8 +2,9 @@ package lk.Spring.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lk.Spring.dto.CustomerDTO;
 import lk.Spring.dto.VehicleDTO;
-import lk.Spring.dto.VehicleImgDTO;
+import lk.Spring.entity.Customer;
 import lk.Spring.entity.Vehicle;
 import lk.Spring.repo.RatesRepo;
 import lk.Spring.repo.VehicleRepo;
@@ -19,7 +20,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,7 +30,6 @@ public class VehicleServiceImpl implements VehicleService {
     private VehicleRepo repo;
     @Autowired
     private ModelMapper mapper;
-
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -41,27 +40,13 @@ public class VehicleServiceImpl implements VehicleService {
     private Vehicle_TypeRepo vehicleTypeRepo;
 
 
+
     @Override
     public void saveVehicle(VehicleDTO vehicleDTO) {
         if (!repo.existsById(vehicleDTO.getRegistration_Number())) {
-//            if (vehicleTypeRepo.existsById(vehicleDTO.getVehicleType().getVehicle_Type_Id())) {
-//                Vehicle_TypeDTO type = mapper.map(vehicleTypeRepo.findByVehicleTypeId(vehicleDTO.getVehicleType().getVehicle_Type_Id()), Vehicle_TypeDTO.class);
-//                vehicleDTO.setVehicleType(type);
-//            } else {
-//                throw new RuntimeException("Please Check the Vehicle Type ID");
-//            }
-//
-//            if (ratesRepo.existsById(vehicleDTO.getRates().getRateId())) {
-//                RatesDTO rates = mapper.map(ratesRepo.findByRateId(vehicleDTO.getRates().getRateId()), RatesDTO.class);
-//                vehicleDTO.setRates(rates);
-//            } else {
-//                throw new RuntimeException("Please Check the RateID");
-//            }
-
-//            System.out.println("\nchange : "+ vehicleDTO+"\n");
             repo.save(mapper.map(vehicleDTO, Vehicle.class));
-        } else {
-            throw new RuntimeException("Vehicle Already Exist");
+        }else {
+            throw new RuntimeException("Vehicle Already Saved..");
         }
     }
 
@@ -69,7 +54,7 @@ public class VehicleServiceImpl implements VehicleService {
     public void deleteVehicle(String id) {
         if (repo.existsById(id)) {
             repo.deleteById(id);
-        } else {
+        }else {
             throw new RuntimeException("Delete Failed");
         }
     }
@@ -78,7 +63,7 @@ public class VehicleServiceImpl implements VehicleService {
     public void updateVehicle(VehicleDTO vehicleDTO) {
         if (repo.existsById(vehicleDTO.getRegistration_Number())) {
             repo.save(mapper.map(vehicleDTO, Vehicle.class));
-        } else {
+        }else {
             throw new RuntimeException("Update Failed");
         }
     }
@@ -87,21 +72,20 @@ public class VehicleServiceImpl implements VehicleService {
     public VehicleDTO searchVehicle(String id) {
         if (repo.existsById(id)) {
             return mapper.map(repo.findById(id).get(), VehicleDTO.class);
-        } else {
+        }else {
             throw new RuntimeException("Invalid Search");
         }
     }
 
     @Override
-    public List<VehicleDTO> getAllVehicles() {
-        return mapper.map(repo.findAll(), new TypeToken<List<VehicleDTO>>() {
+    public List<VehicleDTO> getAllVehiclesByStatus(String status) {
+        return mapper.map(repo.searchVehiclesByStatus(status), new TypeToken<List<VehicleDTO>>() {
         }.getType());
-
     }
 
     @Override
-    public List<VehicleDTO> getAllVehiclesByStatus(String status) {
-        return mapper.map(repo.searchVehiclesByStatus(status), new TypeToken<List<VehicleDTO>>() {
+    public List<VehicleDTO> getAllVehicles() {
+        return mapper.map(repo.findAll(),new TypeToken<List<VehicleDTO>>(){
         }.getType());
     }
 
@@ -117,15 +101,16 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public void saveVehicleWithImg(String vehicle, MultipartFile file) {
-        VehicleDTO vehicleDTO = null;
+     /*   VehicleDTO vehicleDTO = null;
         String path = null;
         try {
             vehicleDTO = objectMapper.readValue(vehicle, VehicleDTO.class);
+
             System.out.println(vehicleDTO);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        if (!repo.existsById(vehicleDTO.getRegistration_Number())) {
+        if (!repo.existsById(vehicleDTO.getRegistrationNumber())) {
             System.out.println("-------------------------");
 
             System.out.println("-------------------------");
@@ -133,25 +118,24 @@ public class VehicleServiceImpl implements VehicleService {
                 String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
                 File uploadDir = new File(projectPath + "/uploads");
                 uploadDir.mkdir();
-                file.transferTo(new File(uploadDir.getAbsolutePath() + "/" + file.getOriginalFilename()));
-                path = "uploads/" + file.getOriginalFilename();
+                file.transferTo(new File(uploadDir.getAbsolutePath() + "/" +vehicleDTO.getRegistrationNumber()+"_"+  file.getOriginalFilename()));
+                path = "uploads/" +vehicleDTO.getRegistrationNumber()+"_"+ file.getOriginalFilename();
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            VehicleImgDTO imgDTO = new VehicleImgDTO();
+            CarImgDTO imgDTO = new CarImgDTO();
             imgDTO.setPath(path);
-            ArrayList<VehicleImgDTO> carImgDTOS = new ArrayList<VehicleImgDTO>();
+            ArrayList<CarImgDTO> carImgDTOS = new ArrayList<CarImgDTO>();
             carImgDTOS.add(imgDTO);
             System.out.println(imgDTO.getPath());
+//            }
             vehicleDTO.setImgs(carImgDTOS);
             repo.save(mapper.map(vehicleDTO, Vehicle.class));
 
         } else {
             throw new RuntimeException("Vehicle Already Exist");
-        }
+        }*/
     }
-
 }
-

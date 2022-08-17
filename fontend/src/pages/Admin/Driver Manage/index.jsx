@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import Navbar from "../../../components/common/Navbar/Admin";
 import Sidebar from "../../../components/common/Sidebar";
 import CommonButton from "../../../components/common/Button";
-import CommonDataTable from "../../../components/common/Table";
+import CommonDataTable from "../../../components/common/table";
 import AddIcon from "@mui/icons-material/Add";
 import {withStyles} from "@mui/styles";
 import {styleSheet} from "./styles";

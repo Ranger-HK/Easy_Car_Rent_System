@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,7 +21,7 @@ public class Vehicle {
     private String brand;
     private String status;
     private String fuel_Type;
-    private String running_Km;
+    private double running_Km;
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name = "rate_Id",referencedColumnName = "rate_Id",nullable = false)
@@ -31,9 +30,5 @@ public class Vehicle {
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name = "vehicle_Type_Id",referencedColumnName = "vehicle_Type_Id",nullable = false)
     private Vehicle_Type vehicleType;
-
-    @OneToMany(targetEntity = Vehicle_IMG.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "carId", referencedColumnName = "registration_Number")
-    private List<Vehicle_IMG> imgs;
 
 }

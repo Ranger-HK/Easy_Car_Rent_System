@@ -1,7 +1,7 @@
 import {Component} from "react";
 import Button from "@mui/material/Button";
 import {withStyles} from "@mui/styles";
-import not_found from '../../assets/img/404-error.png'
+import not_found from '../../assets/images/404-error.png'
 import {Link} from "react-router-dom";
 
 const styleSheet = () => ({

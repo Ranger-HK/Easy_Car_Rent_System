@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,6 +26,10 @@ public class Customer {
     private String email;
     private String password;
 
+
+    @OneToMany(targetEntity = License_or_NIC_IMG.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerID", referencedColumnName = "id")
+    private List<License_or_NIC_IMG> imgs;
 
 
 }

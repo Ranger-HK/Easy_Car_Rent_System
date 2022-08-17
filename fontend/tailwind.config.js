@@ -1,14 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  important: '#root',
   theme: {
     extend: {
+
       backgroundImage:{
-        'carImg':"url('assets/img/cover/car_02.jpg')",
-        'carImg2':"url('assets/img/cover/car_02.jpg')",
-      }
+        'hero-pattern':"url('assets/images/wall2.jpg')",
+        'bgImg':"url('assets/images/backwall.jpg')"
+
+      },
+      fontFamily:{
+        'dosis':"'Dosis',sans-serif",
+        'roboto':"'Roboto Condensed', sans-serif",
+      },
     },
   },
   plugins: [],

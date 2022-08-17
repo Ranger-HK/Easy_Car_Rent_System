@@ -27,7 +27,7 @@ public class VehicleDTO {
     private double running_Km;
     private Rates rates;
     private Vehicle_Type vehicleType;
-    private List<VehicleImgDTO> imgs;
+
 
 
 }

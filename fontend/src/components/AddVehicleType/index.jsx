@@ -4,7 +4,7 @@ import {styleSheet} from "./styles";
 import {withStyles} from "@mui/styles";
 import {TextValidator, ValidatorForm} from "react-material-ui-form-validator";
 import CommonButton from "../common/Button";
-import Vehicle_TypeService from "../../services/Vehicle_TypeService";
+import Vehicle_TypeService from "../../services/VehicleTypeService";
 import CustomSnackBar from "../common/SnakBar";
 
 

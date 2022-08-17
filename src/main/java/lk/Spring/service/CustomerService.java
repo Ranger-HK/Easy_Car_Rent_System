@@ -1,10 +1,12 @@
 package lk.Spring.service;
 
 import lk.Spring.dto.CustomerDTO;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface CustomerService {
+
     void saveCustomer(CustomerDTO customerDTO);
 
     void deleteCustomer(String id);
@@ -16,5 +18,7 @@ public interface CustomerService {
     List<CustomerDTO> getAllCustomer();
 
     long countUsers();
+
+    void saveCustomerWithImg(String customer, MultipartFile file);
 
 }

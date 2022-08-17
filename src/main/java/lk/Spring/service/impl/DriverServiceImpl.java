@@ -1,8 +1,6 @@
 package lk.Spring.service.impl;
 
-import lk.Spring.dto.CustomerDTO;
 import lk.Spring.dto.DriverDTO;
-import lk.Spring.entity.Customer;
 import lk.Spring.entity.Driver;
 import lk.Spring.repo.DriverRepo;
 import lk.Spring.service.DriverService;
@@ -25,9 +23,9 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void saveDriver(DriverDTO driverDTO) {
-        if (!repo.existsById(driverDTO.getDriverId())){
+        if (!repo.existsById(driverDTO.getDriverId())) {
             repo.save(mapper.map(driverDTO, Driver.class));
-        }else {
+        } else {
             throw new RuntimeException("Driver Already Saved..");
         }
     }
@@ -36,7 +34,7 @@ public class DriverServiceImpl implements DriverService {
     public void deleteDriver(String id) {
         if (repo.existsById(id)) {
             repo.deleteById(id);
-        }else {
+        } else {
             throw new RuntimeException("Delete Failed");
         }
     }
@@ -45,7 +43,7 @@ public class DriverServiceImpl implements DriverService {
     public void updateDriver(DriverDTO driverDTO) {
         if (repo.existsById(driverDTO.getDriverId())) {
             repo.save(mapper.map(driverDTO, Driver.class));
-        }else {
+        } else {
             throw new RuntimeException("Update Failed");
         }
     }
@@ -54,14 +52,14 @@ public class DriverServiceImpl implements DriverService {
     public DriverDTO searchDriver(String id) {
         if (repo.existsById(id)) {
             return mapper.map(repo.findById(id).get(), DriverDTO.class);
-        }else {
+        } else {
             throw new RuntimeException("Invalid Search");
         }
     }
 
     @Override
     public List<DriverDTO> getAllDriver() {
-        return mapper.map(repo.findAll(),new TypeToken<List<DriverDTO>>(){
+        return mapper.map(repo.findAll(), new TypeToken<List<DriverDTO>>() {
         }.getType());
     }
 }

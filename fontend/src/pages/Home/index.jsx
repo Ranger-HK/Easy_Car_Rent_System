@@ -1,28 +1,21 @@
-import React, {Component} from "react";
-import NavBar from "../../components/NavBar";
-import ListVehicle from "../../components/ListVehicle";
+import React, { Component } from 'react'
+import NavBar from '../../components/NavBar'
+import Hero from '../../components/hero/hero'
+import ListVehicle from "../../components/listVehicle";
 import Footer from "../../components/Footer";
-import {Grid} from "@mui/material";
-import Hero from "../../components/Hero/hero";
 
 class Home extends Component {
     render() {
         return (
-            // overflowX:'hidden'
-            <Grid container>
-                <div style={{display: "flex", flexDirection: "column"}}>
-                    <NavBar/>
-                    <Hero/>
-                    <ListVehicle/>
-                    <Footer/>
-                    {/* <LoginUser/>  */}
+            <div>
 
-                    {/* <LoginAdmin/>
-                <LoginDriver/> */}
-                </div>
-            </Grid>
-        );
+                <NavBar/>
+                <Hero/>
+                <ListVehicle/>
+                <Footer/>
+
+            </div>
+        )
     }
 }
-
-export default Home;
+export default Home
